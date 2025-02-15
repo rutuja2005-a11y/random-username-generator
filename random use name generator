@@ -1,0 +1,16 @@
+import random
+adjectives = ["Cool", "Happy", "Fast", "Smart", "Brave", "Lazy", "Clever", "Wild","Lucky", "Crazy"]
+nouns = ["Tiger", "Dragon", "Lion", "Panda", "Eagle", "Shark", "Wolf", "Fox", "Bear","Hawk"]
+def generate_username(include_numbers=True, include_special_chars=True)
+  username = random.choice(adjectives) + random.choice(nouns)
+if include_numbers:
+  username += str(random.randint(0, 999))
+if include_special_chars:
+  username += random.choice(["!", "@", "#", "$", "%"])
+ return username
+def save_usernames_to_file(filename="usernames.txt", count=5):
+  with open(filename, "w") as file:
+   for _ in range(count):
+     username = generate_username()
+     file.write(username + "\n")
+save_usernames_to_file() 
